@@ -137,3 +137,10 @@ curl -X PUT "http://localhost/api/bookings/1" -H "Content-Type: application/json
 This command updates the booking with ID `1` by changing its comment to "Hello". Verify the update by listing bookings or checking the CSV file.
 
 ---
+
+## Running Tests
+
+To run the tests for this project, use the following command from the project root:
+
+```bash
+php bin/phpunit
