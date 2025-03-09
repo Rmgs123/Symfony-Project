@@ -67,3 +67,73 @@ docker-compose up -d
   
 - **Database Connectivity:**  
   Don't forget to verify that the PostgreSQL container is working.
+ 
+ <br><br>
+ 
+## API Usage Examples
+
+Below are examples of how to test the API endpoints using `curl`. These commands assume your application is running locally at `http://localhost`.
+
+## 1. List Available Cottages
+
+**Endpoint:** `GET /api/cottages`
+
+```bash
+curl -X GET "http://localhost/api/cottages"
+```
+
+This command retrieves a JSON list of all available cottages.
+
+---
+
+## 2. List All Bookings
+
+**Endpoint:** `GET /api/bookings`
+
+```bash
+curl -X GET "http://localhost/api/bookings"
+```
+
+This command retrieves a JSON list of all current bookings.
+
+---
+
+## 3. Create a New Booking
+
+**Endpoint:** `POST /api/bookings`  
+**Parameters:**
+- `phone`: Client's phone number  
+- `cottageId`: ID of the cottage  
+- `comment`: Optional comment
+
+**Example using URL-encoded form data:**
+
+```bash
+curl -X POST "http://localhost/api/bookings" -H "Content-Type: application/x-www-form-urlencoded" -d "phone=+123456789&cottageId=2&comment=Need a quiet place"
+```
+
+**Or using multipart/form-data:**
+
+```bash
+curl -X POST "http://localhost/api/bookings" -F "phone=+123456789" -F "cottageId=2" -F "comment=Need a quiet place"
+```
+
+This command creates a new booking record. After running it, you can verify the new booking by checking the CSV file or using the GET bookings endpoint.
+
+---
+
+## 4. Update an Existing Booking
+
+**Endpoint:** `PUT /api/bookings/{id}` (replace `{id}` with the actual booking ID)  
+**Parameter:**
+- `comment`: New comment for the booking
+
+**Example using JSON data:**
+
+```bash
+curl -X PUT "http://localhost/api/bookings/1" -H "Content-Type: application/json" -d "{\"comment\":\"Hello\"}"
+```
+
+This command updates the booking with ID `1` by changing its comment to "Hello". Verify the update by listing bookings or checking the CSV file.
+
+---
