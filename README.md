@@ -68,7 +68,7 @@ docker-compose up -d
 - **Database Connectivity:**  
   Don't forget to verify that the PostgreSQL container is working.
  
- <br><br>
+ <br>
  
 ## API Usage Examples
 
