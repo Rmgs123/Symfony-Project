@@ -1,0 +1,1 @@
+{"version":1,"defects":[],"times":{"App\\Tests\\Service\\BookingCsvServiceTest::testCreateBooking":0.017,"App\\Tests\\Service\\CottageCsvServiceTest::testGetAllCottagesEmptyIfNoFile":0.001}}
